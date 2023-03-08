@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+package com.volvocars.hdroute.aidlproto;
+
+option java_package = "com.volvocars.hdroute.aidl";
+option java_multiple_files = true;
+
+// basic navigation route.
+message Route {
+    //length of whole route.
+    uint32 length = 1;
+    // number of links of whole route.
+    uint32 linkNumber = 2;
+    // link array.
+    repeated Link links = 3;
+}
+
+//segment of route.
+message Link {
+    //length of this link, unit: meter.
+    uint32 length = 1;
+    // limited int: level function road class.
+    uint32 level = 2;
+    // limited int: form of way.
+    uint32 usage = 3;
+    // number of shape point.
+    uint32 number = 4;
+    //set of all shape points in per link.
+    repeated LinkPt linkPt = 5;
+    //set of all lanegroups in per link.
+    repeated LaneInfo laneInfo = 6;
+
+}
+//left side line group in one link
+message LaneInfo {
+    //start point of central line of left side
+    LinkPt startPt = 1;
+    //end point of central line of left side
+    LinkPt endPt = 2;
+}
+
+//shape point in one link
+message LinkPt {
+    int32 lon = 1;
+    int32 lat = 2;
+}
+// todo update proto. parse.

@@ -1,0 +1,73 @@
+syntax = "proto3";
+
+package com.volvocars.hdroute.aidlproto;
+
+option java_package = "com.volvocars.hdroute.aidl";
+option java_multiple_files = true;
+
+enum FixType {
+    No_Fix = 0;
+    Dead_Reckoning_Only = 1;
+    Two_Dimension_Fix = 2;
+    Three_Dimension_Fix = 3;
+    Differential_GPS = 4;
+    RTK_Float = 5;
+    RTK_Fix = 6;
+}
+
+message PointInfo {
+    double lon = 1;		// Longitude.
+    double lat = 2;		// Latitude.
+}
+
+message NIDateTime {
+    int32 hour = 1;			// hour
+    int32 minute = 2;		// minute
+    int32 second = 3;		// second
+    int32 millisecond = 4;	// millisecond
+    int32 year = 5;			// year
+    int32 month = 6;		// month
+    int32 day = 7;			// day
+}
+
+// GNSS
+message GNSS {
+    uint64 timeStampGNSS = 1;			// Timestamp of generated GNSS.
+    NIDateTime gnssTime = 2;			// GNSS time.
+    uint32 satellitesNum = 3;			// Number of satellites used for current data.
+    repeated uint32 realPointIndex = 4;	// List of real WGS84 coordinate index.
+    uint32 pointInfoNum = 5;			// Number of WGS84 coordinate.
+    repeated PointInfo pointInfo = 6;	// List of WGS84 coordinate.
+    double altitude = 7;				// Altitude.
+    double nedVelocityX = 8;			// Velocity of due north.
+    double nedVelocityY = 9;			// Velocity of due east.
+    double nedVelocityZ = 10;			// Velocity of vertical direction.
+    double heading = 11;				// Heading angle.
+    double horizontalAccuracy = 12;		// Accuracy of horizontal position.
+    double verticalAccuracy = 13;		// Accuracy of vertical position.
+    double speedAccuracy = 14;			// Accuracy of speed.
+    double headingAccuracy = 15;		// Accuracy of heading.
+    double groundSpeed = 16;			// Speed.
+    float positionDOP = 17;				// Position Dilution of Precision.
+    FixType fixType = 18;				// Fusion type.
+}
+
+// IMU
+message IMU {
+    uint64 timeStampIMU = 1;	// Timestamp of generated IMU.
+    double accelerationX = 2;	// X-axis acceleration.
+    double accelerationY = 3;	// Y-axis acceleration.
+    double accelerationZ = 4;	// Z-axis acceleration.
+
+    double gyroscopeX = 5;		// X-axis gyroscope angle.
+    double gyroscopeY = 6;		// Y-axis gyroscope angle.
+    double gyroscopeZ = 7;		// Z-axis gyroscope angle.
+
+    double longitude = 8;		// longitude
+    double latitude = 9;		// latitude
+    double heading = 10;		// Heading angle
+        }
+message Shift {
+    GNSS gnss = 1;
+    IMU imu = 2;
+}

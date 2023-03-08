@@ -1,0 +1,38 @@
+{
+  "length": 15911,
+  "linkNumber": 76,
+  "links": [
+    {
+      "length": 65,
+      "level": 18,
+      "usage": 15,
+      "number": 3,
+      "linkPt": [
+        {
+          "lon": 12141067,
+          "lat": 3127816
+        },
+        {
+          "lon": 12141052,
+          "lat": 3127835
+        },
+        {
+          "lon": 12141047,
+          "lat": 3127870
+        }
+      ]
+    },
+    {
+      "length": 125,
+      "level": 18,
+      "usage": 15,
+      "number": 10,
+      "linkPt": [
+        {
+          "lon": 12141047,
+          "lat": 3127870
+        }
+      ]
+    }
+  ]
+}

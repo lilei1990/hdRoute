@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package com.volvocars.hdroute.aidlproto;
+
+option java_package = "com.volvocars.hdroute.aidl";
+option java_multiple_files = true;
+
+import "Route.proto";
+
+message CrRoute {
+    Route currentRoute= 1;
+}

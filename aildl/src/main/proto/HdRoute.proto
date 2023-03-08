@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package com.volvocars.hdroute.aidlproto;
+
+
+option java_package = "com.volvocars.hdroute.aidl";
+option java_multiple_files = true;
+import "Route.proto";
+
+// HD map route, includes origin cr route.
+message HdRoute{
+    // original cr route.
+    Route currentRoute =1;
+    // matched hd routes array.
+    repeated Route matchedRoutes =2;
+}
