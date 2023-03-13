@@ -5,7 +5,6 @@ import android.os.ParcelFileDescriptor;
 import android.os.RemoteException;
 
 import com.blankj.utilcode.util.ConvertUtils;
-import com.volvocars.hdroute.aildl.IGNSSChangeListener;
 
 import java.io.FileDescriptor;
 import java.io.FileInputStream;

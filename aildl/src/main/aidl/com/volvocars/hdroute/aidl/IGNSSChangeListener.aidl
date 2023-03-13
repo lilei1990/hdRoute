@@ -1,5 +1,5 @@
 // IGNSSChangeListener.aidl
-package com.volvocars.hdroute.aildl;
+package com.volvocars.hdroute.aidl;
 
 // Declare any non-default types here with import statements
 

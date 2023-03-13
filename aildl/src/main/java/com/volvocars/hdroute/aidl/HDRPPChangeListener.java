@@ -1,7 +1,5 @@
 package com.volvocars.hdroute.aidl;
 
-import com.volvocars.hdroute.aildl.IGNSSChangeListener;
-
 public interface  HDRPPChangeListener {
     byte[] onHDFusedPointChange(byte[] data);
 

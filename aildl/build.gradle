@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace 'com.volvocars.hdroute.aildl'
+    namespace 'com.volvocars.hdroute.aidl'
     compileSdk 32
 
     defaultConfig {

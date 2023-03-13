@@ -8,8 +8,6 @@ import android.content.ServiceConnection;
 import android.os.IBinder;
 import android.util.Log;
 
-import com.volvocars.hdroute.aildl.IService;
-
 public abstract class IRouteApi {
 
     protected static IService myService;

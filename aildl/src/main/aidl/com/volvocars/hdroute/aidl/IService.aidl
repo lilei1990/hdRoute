@@ -1,8 +1,8 @@
 // IService.aidl
-package com.volvocars.hdroute.aildl;
+package com.volvocars.hdroute.aidl;
 
 // Declare any non-default types here with import statements
-import com.volvocars.hdroute.aildl.IGNSSChangeListener;
+import com.volvocars.hdroute.aidl.IGNSSChangeListener;
 interface IService {
 
     /**

@@ -1,5 +1,6 @@
 package com.volvocars.testhdmap;
 
+import android.app.Application;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -31,10 +32,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initServices() {
-        HDRouteApi.init(Utils.getApp());
+        Application app = Utils.getApp();
         new Thread(new Runnable() {
             @Override
             public void run() {
+                HDRouteApi.init(app);
 
                 Log.d(TAG, "run: init ok");
                 try {
