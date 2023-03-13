@@ -15,6 +15,7 @@ import com.blankj.utilcode.util.Utils;
 import com.volvocars.hdroute.aidl.IRouteApi;
 import com.volvocars.hdroute.aidl.MemoryFileUtils;
 import com.volvocars.hdroute.aidl.Route;
+import com.volvocars.hdroute.aidl.SDPointInfo;
 import com.volvocars.hdroute.aildl.IService;
 
 import java.io.FileDescriptor;
@@ -77,6 +78,23 @@ public class SDRouteApi extends IRouteApi {
     public static void onLocationChange(byte[] location) {
         try {
             myService.onLocationChange(location);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+            Log.d(TAG, "sendRouteLinkErr: "+e.getMessage());
+        }
+    }
+    public static void onLocationChange(double lon,double lat,double heading) {
+        try {
+            SDPointInfo build = SDPointInfo.newBuilder().setLat(lon).setLat(lat).setHeading(heading).build();
+            myService.onLocationChange(build.toByteArray());
+        } catch (RemoteException e) {
+            e.printStackTrace();
+            Log.d(TAG, "sendRouteLinkErr: "+e.getMessage());
+        }
+    }
+    public static void onLocationChange(SDPointInfo location) {
+        try {
+            myService.onLocationChange(location.toByteArray());
         } catch (RemoteException e) {
             e.printStackTrace();
             Log.d(TAG, "sendRouteLinkErr: "+e.getMessage());

@@ -49,12 +49,13 @@ public class ShiftServiceBinder extends IService.Stub {
     @Override
     public void sendRouteLink(ParcelFileDescriptor sdRouteLink) throws RemoteException {
 
-        ParcelFileDescriptor hdRouteLink = listener.onRoutLinkChange(sdRouteLink);
-        FileInputStream fileInputStream = new FileInputStream(hdRouteLink.getFileDescriptor());
-        byte[] bytes = ConvertUtils.inputStream2Bytes(fileInputStream);
         try {
-            Log.d(TAG, "sendRouteLink: "+Route.parseFrom(bytes).toString());
-        } catch (InvalidProtocolBufferException e) {
+            ParcelFileDescriptor hdRouteLink = listener.onRoutLinkChange(sdRouteLink);
+            FileInputStream fileInputStream = new FileInputStream(hdRouteLink.getFileDescriptor());
+            byte[] bytes = ConvertUtils.inputStream2Bytes(fileInputStream);
+            Log.d(TAG, "sendRouteLink: " + Route.parseFrom(bytes).toString());
+        } catch (Exception e) {
+            Log.d(TAG, "sendRouteLink: "+e.getMessage());
             e.printStackTrace();
         }
         // TODO: 2023/2/28  把转化的数据发送给hal层

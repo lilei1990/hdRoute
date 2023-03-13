@@ -51,19 +51,24 @@ public class HDRouteApi extends IRouteApi {
         public ParcelFileDescriptor onRoutLinkChange(ParcelFileDescriptor data) throws RemoteException {
             if (listener != null) {
                 FileInputStream fileInputStream = new FileInputStream(data.getFileDescriptor());
+                //转换成字节数组
                 byte[] linkChange = ConvertUtils.inputStream2Bytes(fileInputStream);
+                //发送给四维，返回转换匹配后的数据
+                byte[] bytes = listener.onRoutLinkChange(linkChange);
+                if (bytes==null) {
+                    return null;
+                }
                 /**
                  * 创建MemoryFile
                  */
                 MemoryFile memoryFile = null;
                 try {
-                    memoryFile = new MemoryFile("routeLink", linkChange.length);
-
+                    memoryFile = new MemoryFile("routeLink", bytes.length);
 
                     /**
                      * 向MemoryFile中写入字节数组
                      */
-                    memoryFile.writeBytes(linkChange, 0, 0, linkChange.length);
+                    memoryFile.writeBytes(bytes, 0, 0, bytes.length);
 
                     /**
                      * 获取MemoryFile对应的FileDescriptor
@@ -88,10 +93,6 @@ public class HDRouteApi extends IRouteApi {
         }
     };
 
-    public static void sendRouteLink(byte[] routeLink) {
-
-
-    }
     public static void addHDRPPChangeListener(String tag, HDRPPChangeListener ls) {
         listener = ls;
         try {

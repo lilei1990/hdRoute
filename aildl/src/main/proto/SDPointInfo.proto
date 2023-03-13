@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package com.volvocars.hdroute.aidlproto;
+
+
+option java_package = "com.volvocars.hdroute.aidl";
+option java_multiple_files = true;
+
+message SDPointInfo {
+    double lon = 1;			// Longitude.
+    double lat = 2;			// Latitude.
+    double heading = 3;		// Heading.
+}

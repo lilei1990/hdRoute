@@ -11,6 +11,7 @@
     <Button
         android:layout_width="wrap_content"
         android:id="@+id/btClick1"
+        android:visibility="gone"
         android:text="bindService"
         android:layout_height="wrap_content"
         tools:ignore="MissingConstraints"/>
@@ -18,7 +19,7 @@
     <Button
         android:layout_width="wrap_content"
         android:id="@+id/btClick2"
-        android:text="sendRouteLink"
+        android:text="onlocationchange"
         android:layout_height="wrap_content"
         tools:ignore="MissingConstraints"/>
     <Button
