@@ -49,5 +49,8 @@ protobuf{
     }
 }
 dependencies {
-    api('com.google.protobuf:protobuf-lite:3.0.0')
+    api fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
+
+//    api files('libs/protobuf-lite-3.0.0.jar')
+//    api files('libs/utilcodex-1-31-1.jar')
 }

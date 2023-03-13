@@ -32,19 +32,7 @@ public class ShiftServiceBinder extends IService.Stub {
         this.listener = null;
     }
 
-//    @Override
-//    public void sendRouteLink(byte[] routeLink) {
-//        Log.d(TAG, "sendRouteLink: " + routeLink.length);
-//        try {
-//            if (listener != null) {
-//                listener.onRoutLinkChange(routeLink);
-//                // TODO: 2023/2/28  把转化的数据发送给hal层
-//            }
-//        } catch (RemoteException e) {
-//            e.printStackTrace();
-//            Log.d(TAG, "sendRouteLinkErr: " + e.getMessage());
-//        }
-//    }
+
 
     @Override
     public void sendRouteLink(ParcelFileDescriptor sdRouteLink) throws RemoteException {

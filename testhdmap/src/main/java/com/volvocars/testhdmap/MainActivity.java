@@ -1,7 +1,6 @@
 package com.volvocars.testhdmap;
 
 import android.os.Bundle;
-import android.os.RemoteException;
 import android.util.Log;
 import android.view.View;
 
@@ -10,9 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.blankj.utilcode.util.ConvertUtils;
 import com.blankj.utilcode.util.Utils;
 import com.google.protobuf.InvalidProtocolBufferException;
-import com.volvocars.hdmap.HDRouteApi;
-
 import com.volvocars.hdroute.aidl.HDRPPChangeListener;
+import com.volvocars.hdroute.aidl.HDRouteApi;
 import com.volvocars.hdroute.aidl.Route;
 import com.volvocars.hdroute.aidl.SDPointInfo;
 
@@ -33,10 +31,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initServices() {
+        HDRouteApi.init(Utils.getApp());
         new Thread(new Runnable() {
             @Override
             public void run() {
-                HDRouteApi.init(Utils.getApp());
+
                 Log.d(TAG, "run: init ok");
                 try {
                     Thread.sleep(3000);

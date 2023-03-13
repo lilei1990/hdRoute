@@ -1,6 +1,8 @@
+
 plugins {
     id 'com.android.library'
 }
+
 
 android {
     namespace 'com.volvocars.hdmap'
@@ -29,10 +31,10 @@ android {
 
 dependencies {
 
+    api fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
+//    api files('libs/aildl-release.aar')
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.5.0'
-    api 'com.blankj:utilcodex:1.31.1'
-    api 'io.github.jeremyliao:live-event-bus-x:1.8.0'
-    api project(path: ':aildl')
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+//    api project(path: ':aildl')
+    //    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
 }

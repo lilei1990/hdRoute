@@ -44,4 +44,3 @@ message LinkPt {
     int32 lon = 1;
     int32 lat = 2;
 }
-// todo update proto. parse.

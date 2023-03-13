@@ -1,17 +1,14 @@
 package com.volvocars.testsdmap;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.blankj.utilcode.util.ConvertUtils;
 import com.blankj.utilcode.util.Utils;
-import com.google.protobuf.InvalidProtocolBufferException;
-import com.volvocars.hdroute.aidl.HDRPPChangeListener;
 import com.volvocars.hdroute.aidl.Route;
-import com.volvocars.sdmap.SDRouteApi;
+import com.volvocars.hdroute.aidl.SDRouteApi;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -31,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 sendLargeData("Route_sample.txt");
                 SDRouteApi.onLocationChange(1.0,2.0,3.0);
+
             }
         });
         bt3.setOnClickListener(new View.OnClickListener() {

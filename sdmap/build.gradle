@@ -28,10 +28,9 @@ android {
 }
 
 dependencies {
-
+    compileOnly fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.5.0'
-    api 'com.blankj:utilcodex:1.31.1'
-    api 'io.github.jeremyliao:live-event-bus-x:1.8.0'
-    api project(path: ':aildl')
+//    api project(path: ':aildl')
+//    api files('libs/aildl-release.aar')
 }

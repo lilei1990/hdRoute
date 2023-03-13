@@ -1,14 +1,9 @@
-package com.volvocars.sdmap;
+package com.volvocars.hdroute.aidl;
 
 import android.os.MemoryFile;
 import android.os.ParcelFileDescriptor;
 import android.os.RemoteException;
 import android.util.Log;
-
-import com.volvocars.hdroute.aidl.IRouteApi;
-import com.volvocars.hdroute.aidl.MemoryFileUtils;
-import com.volvocars.hdroute.aidl.Route;
-import com.volvocars.hdroute.aidl.SDPointInfo;
 
 import java.io.FileDescriptor;
 import java.io.IOException;

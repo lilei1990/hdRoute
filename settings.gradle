@@ -16,8 +16,8 @@ dependencyResolutionManagement {
 }
 rootProject.name = "hdroute"
 //include ':app'
-include ':sdmap'
-include ':hdmap'
+//include ':sdmap'
+//include ':hdmap'
 //include ':hdapp'
 include ':hdrppservice'
 include ':aildl'

@@ -11,9 +11,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/aildl" />
-            <option value="$PROJECT_DIR$/hdmap" />
             <option value="$PROJECT_DIR$/hdrppservice" />
-            <option value="$PROJECT_DIR$/sdmap" />
             <option value="$PROJECT_DIR$/testhdmap" />
             <option value="$PROJECT_DIR$/testsdmap" />
           </set>
