@@ -16,6 +16,7 @@ public class SDRouteApi extends IRouteApi {
     public static void sendRouteLink(Route routeLink) {
         sendRouteLink(routeLink.toByteArray());
     }
+
     public static void sendRouteLink2(Route routeLink) {
         sendRouteLink(routeLink.toByteArray());
     }
@@ -47,7 +48,7 @@ public class SDRouteApi extends IRouteApi {
             /**
              * 发送数据
              */
-            SDRouteApi.sendRouteLink(pfd);
+            sendRouteLink(pfd);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -57,37 +58,47 @@ public class SDRouteApi extends IRouteApi {
 
     private static void sendRouteLink(ParcelFileDescriptor routeLink) {
         try {
-            myService.sendRouteLink(routeLink);
+            if (myService != null) {
+                myService.sendRouteLink(routeLink);
+            }
         } catch (RemoteException e) {
             e.printStackTrace();
-            Log.d(TAG, "sendRouteLinkErr: "+e.getMessage());
+            Log.d(TAG, "sendRouteLinkErr: " + e.getMessage());
         }
     }
 
 
     public static void onLocationChange(byte[] location) {
         try {
-            myService.onLocationChange(location);
+            if (myService != null) {
+                myService.onLocationChange(location);
+            }
         } catch (RemoteException e) {
             e.printStackTrace();
-            Log.d(TAG, "sendRouteLinkErr: "+e.getMessage());
+            Log.d(TAG, "sendRouteLinkErr: " + e.getMessage());
         }
     }
-    public static void onLocationChange(double lon,double lat,double heading) {
+
+    public static void onLocationChange(double lon, double lat, double heading) {
         try {
-            SDPointInfo build = SDPointInfo.newBuilder().setLat(lon).setLat(lat).setHeading(heading).build();
-            myService.onLocationChange(build.toByteArray());
+            if (myService != null) {
+                SDPointInfo build = SDPointInfo.newBuilder().setLat(lon).setLat(lat).setHeading(heading).build();
+                myService.onLocationChange(build.toByteArray());
+            }
         } catch (RemoteException e) {
             e.printStackTrace();
-            Log.d(TAG, "sendRouteLinkErr: "+e.getMessage());
+            Log.d(TAG, "sendRouteLinkErr: " + e.getMessage());
         }
     }
+
     public static void onLocationChange(SDPointInfo location) {
         try {
-            myService.onLocationChange(location.toByteArray());
+            if (myService != null) {
+                myService.onLocationChange(location.toByteArray());
+            }
         } catch (RemoteException e) {
             e.printStackTrace();
-            Log.d(TAG, "sendRouteLinkErr: "+e.getMessage());
+            Log.d(TAG, "sendRouteLinkErr: " + e.getMessage());
         }
     }
 }
